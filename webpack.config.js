@@ -5,7 +5,19 @@ module.exports = {
   mode: "development",
   target: "web",
   entry: {
-    app: ["./client/index.js"]
+    app: ["./client/index.ts"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      }
+    ]
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ]
   },
   output: {
     path: path.resolve(__dirname, "./build"),
