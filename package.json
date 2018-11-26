@@ -4,6 +4,7 @@
     "start": "concurrently --kill-others \"tsc -w\" \"nodemon --delay 2 dist/index.js\""
   },
   "devDependencies": {
+    "@types/koa-router": "^7.0.35",
     "@types/koa-webpack": "^5.0.1",
     "concurrently": "^4.1.0",
     "gulp": "^4.0.0",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "@types/koa": "^2.0.46",
-    "koa": "^2.6.2"
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0"
   }
 }
