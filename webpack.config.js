@@ -5,7 +5,7 @@ module.exports = {
   mode: "development",
   target: "web",
   entry: {
-    app: ["./client/index.ts"]
+    app: ["./client/index.tsx"]
   },
   module: {
     rules: [
