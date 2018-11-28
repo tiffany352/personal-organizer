@@ -1,11 +1,11 @@
 import * as React from 'react'
-import ConnecedCounter from './Counter'
+import Quote from './Quote'
 
 export default function App(_props: {}) {
   return (
     <div>
-      Hello, world
-      <ConnecedCounter />
+      Welcome to the Quote-Viewer App!!!
+      <Quote />
     </div>
   )
 }

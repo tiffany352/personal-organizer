@@ -1,13 +1,17 @@
-import { IncrementAction } from "../actions/increment"
+import { SetQuoteAction } from "../actions/setQuote"
 import { combineReducers, Reducer } from "redux"
-import counter from "./counter"
+import quote from "./quote"
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
 
-export type State = {
-  counter: number,
+export type AppState = {
+  quote: string|null,
 }
-export type Action = IncrementAction
+export type AppAction = SetQuoteAction
 
-const rootReducer: Reducer<State, Action> = combineReducers({
-  counter: counter
+export type ThunkResult<R> = ThunkAction<R, AppState, undefined, AppAction>
+export type AppDispatch = ThunkDispatch<AppState, undefined, AppAction>
+
+const rootReducer: Reducer<AppState, AppAction> = combineReducers({
+  quote
 })
 export default rootReducer
