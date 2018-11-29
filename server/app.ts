@@ -1,6 +1,7 @@
 import Koa from 'koa'
 import Router from 'koa-router'
 import getQuote from './routes/getQuote'
+import getNote from './routes/notes/getNote'
 
 console.log("hello, backend")
 const app = new Koa()
@@ -9,6 +10,7 @@ const router = new Router({
 })
 
 router.get('/get-quote', getQuote)
+router.get('/notes/get/:id', getNote)
 
 if (process.env.NODE_ENV == 'development' || !process.env.NODE_ENV) {
   const koaWebpack = require('koa-webpack')
