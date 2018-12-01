@@ -6,6 +6,7 @@ import rootReducer, { AppAction, AppState } from './reducers'
 import App from './components/App'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk, { ThunkMiddleware } from 'redux-thunk'
+import fetchNotesList from './actions/fetchNotesList'
 
 const store = createStore(
   rootReducer,
@@ -17,5 +18,7 @@ const element = (
     <App />
   </Provider>
 )
+
+store.dispatch(fetchNotesList())
 
 ReactDOM.render(element, document.getElementById("root"))

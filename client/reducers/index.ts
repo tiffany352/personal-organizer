@@ -1,17 +1,17 @@
-import { SetQuoteAction } from "../actions/setQuote"
 import { combineReducers, Reducer } from "redux"
-import quote from "./quote"
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
+import notes, { Note } from "./notes"
+import { ThunkAction, ThunkDispatch } from "redux-thunk"
+import { AddNoteAction } from "../actions/addNote"
 
 export type AppState = {
-  quote: string|null,
+  notes: Note[],
 }
-export type AppAction = SetQuoteAction
+export type AppAction = AddNoteAction
 
 export type ThunkResult<R> = ThunkAction<R, AppState, undefined, AppAction>
 export type AppDispatch = ThunkDispatch<AppState, undefined, AppAction>
 
 const rootReducer: Reducer<AppState, AppAction> = combineReducers({
-  quote
+  notes
 })
 export default rootReducer

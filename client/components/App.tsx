@@ -1,11 +1,10 @@
 import * as React from 'react'
-import Quote from './Quote'
+import NoteList from './NoteList'
 
 export default function App(_props: {}) {
   return (
     <div>
-      Welcome to the Quote-Viewer App!!!
-      <Quote />
+      <NoteList />
     </div>
   )
 }
