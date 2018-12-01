@@ -3,20 +3,25 @@ import NoteView from "./NoteView"
 import { Note } from '../reducers/notes'
 import { connect } from 'react-redux'
 import { AppState } from '../reducers'
+import { Tree, Icon } from 'antd'
 
 export function NoteListView(props: { notes: Note[] }) {
   return (
-    <div>
+    <Tree showIcon>
       {props.notes.map((note) => (
-        <NoteView {...note} />
+        <Tree.TreeNode
+          key={note.id.toString()}
+          title={note.title}
+          icon={<Icon type='book' />}
+        />
       ))}
-    </div>
+    </Tree>
   )
 }
 
 const mapStateToProps = (state: AppState) => {
   return {
-    notes: state.notes
+    notes: state.notes.slice(0, 20)
   }
 }
 
