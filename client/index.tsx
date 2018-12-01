@@ -7,6 +7,7 @@ import App from './components/App'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk, { ThunkMiddleware } from 'redux-thunk'
 import fetchNotesList from './actions/fetchNotesList'
+import 'antd/dist/antd.css'
 
 const store = createStore(
   rootReducer,
