@@ -1,16 +1,11 @@
 import Koa from 'koa'
-import Router from 'koa-router'
-import getQuote from './routes/getQuote'
-import getNote from './routes/notes/getNote'
+import bodyParser from 'koa-bodyparser'
+import router from './routes'
 
 console.log("hello, backend")
 const app = new Koa()
-const router = new Router({
-  prefix: '/api'
-})
 
-router.get('/get-quote', getQuote)
-router.get('/notes/get/:id', getNote)
+app.use(bodyParser())
 
 if (process.env.NODE_ENV == 'development' || !process.env.NODE_ENV) {
   const koaWebpack = require('koa-webpack')

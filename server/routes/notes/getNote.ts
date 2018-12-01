@@ -1,14 +1,6 @@
 import { IRouterContext } from "koa-router"
 import database from '../../database'
-
-type Note = {
-  rowid: number,
-  createdAt: number,
-  updatedAt: number|null,
-  deletedAt: number|null,
-  contents: string,
-  title: string
-}
+import { Note } from "../../model/Note"
 
 export default async function getNote(ctx: IRouterContext) {
   const id: number = ctx.params.id
