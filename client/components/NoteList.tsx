@@ -1,13 +1,25 @@
 import * as React from 'react'
-import NoteView from "./NoteView"
 import { Note } from '../reducers/notes'
 import { connect } from 'react-redux'
-import { AppState } from '../reducers'
+import { AppState, AppDispatch } from '../reducers'
 import { Tree, Icon } from 'antd'
+import fetchCurrentNote from '../actions/fetchCurrentNote'
 
-export function NoteListView(props: { notes: Note[] }) {
+export type NoteListProps = {
+  notes: Note[],
+  currentNote: number|null,
+  setCurrentNote: (id: number|null) => void
+}
+
+export function NoteListView(props: NoteListProps) {
   return (
-    <Tree showIcon>
+    <Tree
+      showIcon
+      onSelect={
+        (selectedKeys) => props.setCurrentNote(parseInt(selectedKeys[0]))
+      }
+      selectedKeys={props.currentNote ? [props.currentNote.toString()] : []}
+    >
       {props.notes.map((note) => (
         <Tree.TreeNode
           key={note.id.toString()}
@@ -21,9 +33,18 @@ export function NoteListView(props: { notes: Note[] }) {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    notes: state.notes.slice(0, 20)
+    notes: state.notes.sort((a,b) => b.updatedAt - a.updatedAt).slice(0, 20),
+    currentNote: state.currentNote
   }
 }
 
-const NoteList = connect(mapStateToProps)(NoteListView)
+const mapDispatchToProps = (dispatch: AppDispatch) => {
+  return {
+    setCurrentNote: (id: number|null) => {
+      dispatch(fetchCurrentNote(id))
+    }
+  }
+}
+
+const NoteList = connect(mapStateToProps, mapDispatchToProps)(NoteListView)
 export default NoteList

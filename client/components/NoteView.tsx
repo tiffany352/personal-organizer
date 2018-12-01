@@ -1,12 +1,17 @@
 import * as React from 'react'
-import { Card } from 'antd'
+import { Spin } from 'antd'
 import { Note } from '../reducers/notes'
 
-export default function NoteView(props: Note) {
+export default function NoteView({ note }: { note: Note }) {
   return (
-    <Card title={props.title || 'Untitled'}>
-      <p>{props.contents || 'No contents to show.'}</p>
-      <span>{new Date(props.updatedAt || props.createdAt).toString()}</span>
-    </Card>
+    <React.Fragment>
+      <h1>{note.title||'Untitled'}</h1>
+      {
+        note.contents
+        ? <p>{note.contents}</p>
+        : <div><Spin /></div>
+      }
+      <span>{new Date(note.updatedAt || note.createdAt).toString()}</span>
+    </React.Fragment>
   )
 }
