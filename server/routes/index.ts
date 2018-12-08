@@ -1,12 +1,8 @@
 import Router from 'koa-router'
-import getQuote from './getQuote'
 import notes from './notes'
 
-const router = new Router({
-  prefix: '/api'
-})
+const router = new Router()
 
-router.get('/get-quote', getQuote)
-router.use('/notes', notes.routes())
+router.use('/api/notes', notes.routes())
 
 export default router
