@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Spin, Button, Row, Col } from 'antd'
+import { Spin, Button, Row, Col, Popconfirm } from 'antd'
 import { Note } from '../reducers/notes'
 import EditWidget from './EditWidget'
 import Markdown from './Markdown';
@@ -8,7 +8,8 @@ export type NoteViewProps = {
   note: Note,
   editing: boolean,
   setEditing: (value: boolean) => void,
-  updateContents: (id: number, contents: string) => void
+  updateContents: (id: number, contents: string) => void,
+  deleteNote: (id: number) => void
 }
 
 export default class NoteView extends React.Component<NoteViewProps> {
@@ -26,6 +27,10 @@ export default class NoteView extends React.Component<NoteViewProps> {
   
   discardAndExit = () =>
     this.props.setEditing(false)
+
+  deleteNote = () => {
+    this.props.deleteNote(this.props.note.id)
+  }
 
   render() {
     const {note, editing, setEditing} = this.props
@@ -63,6 +68,9 @@ export default class NoteView extends React.Component<NoteViewProps> {
             {editing && <Button icon='save' onClick={this.saveAndExit}>Save</Button>}
             {editing && <Button icon='stop' onClick={this.discardAndExit}>Cancel</Button>}
             {!editing && <Button icon='edit' onClick={this.enableEditing}>Edit</Button>}
+            {!editing && <Popconfirm title="Permanently delete this note?" onConfirm={this.deleteNote}>
+              <Button icon='delete'>Delete</Button>
+            </Popconfirm>}
           </Col>
         </Row>
         {contents}

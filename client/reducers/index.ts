@@ -8,6 +8,7 @@ import { SetEditingAction } from "../actions/setEditing"
 import editing from "./editing"
 import currentlyOffline from "./currentlyOffline"
 import { UpdateNoteAction } from "../actions/updateNote"
+import { RemoveNoteAction } from "../actions/removeNote"
 import { SetOfflineAction } from "../actions/setOffline"
 
 export type AppState = {
@@ -19,6 +20,7 @@ export type AppState = {
 export type AppAction =
   AddNoteAction |
   UpdateNoteAction |
+  RemoveNoteAction |
   SetCurrentNoteAction |
   SetEditingAction |
   SetOfflineAction

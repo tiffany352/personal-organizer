@@ -10,5 +10,11 @@ export default function currentNote(state: number|null, action: AppAction): numb
     }
   }
 
+  if (action.type == 'removeNote') {
+    if (action.id == state) {
+      return null
+    }
+  }
+
   return state || null
 }

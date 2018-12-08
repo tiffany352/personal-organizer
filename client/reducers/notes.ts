@@ -15,6 +15,11 @@ export default function notes(state: Note[], action: AppAction): Note[] {
     return newState
   }
 
+  if (action.type == 'removeNote') {
+    const newState = state.filter((note) => note.id != action.id)
+    return newState
+  }
+
   if (action.type == 'updateNote') {
     return state.map((note) => {
       if (note.id == action.note.id) {
