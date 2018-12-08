@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Spin, Button, Row, Col } from 'antd'
 import { Note } from '../reducers/notes'
 import EditWidget from './EditWidget'
+import Markdown from './Markdown';
 
 export type NoteViewProps = {
   note: Note,
@@ -38,10 +39,10 @@ export default class NoteView extends React.Component<NoteViewProps> {
       }
       else {
         contents = (
-          <React.Fragment>
-            <p>{note.contents}</p>
+          <Markdown>
+            {note.contents}
             <span>{new Date(note.updatedAt || note.createdAt).toString()}</span>
-          </React.Fragment>
+          </Markdown>
         )
       }
     }

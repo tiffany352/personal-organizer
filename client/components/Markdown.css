@@ -1,0 +1,77 @@
+.Markdown-root pre {
+  border: 1px solid grey;
+  background: #f9f9f9;
+  padding: 8px;
+  border-radius: 3px;
+}
+
+.Markdown-root blockquote {
+  padding-left: 8px;
+  border-left: 4px solid #c7c7c7;
+}
+
+.Markdown-root table {
+  border-collapse: collapse;
+}
+
+.Markdown-root thead {
+  border-bottom: 2px solid grey;
+  border-top: 1px solid #e0e0e0;
+}
+
+.Markdown-root td,
+.Markdown-root th {
+  padding: 8px;
+}
+
+.Markdown-root tbody > tr {
+  border-top: 1px solid #c7c7c7;
+}
+
+.Markdown-root tbody > tr:nth-child(2n+1) {
+  background: #f5f4f4;
+}
+
+.Markdown-root .infobox {
+  border-radius: 3px;
+  margin: 16px;
+  padding: 8px;
+  min-height: 64px;
+}
+
+.Markdown-root .infobox:before {
+  font-size: 48px;
+  line-height: 48px;
+  float: left;
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+  text-align: center;
+}
+
+.Markdown-root .infobox > p:last-child {
+  margin-bottom: 0;
+}
+
+.Markdown-root .info {
+  background: #ededff;
+  border: 1px solid #8080c0;
+}
+
+.Markdown-root .info:before {
+  content: '🛈';
+  font-family: sans-serif;
+  color: #9393c7;
+}
+
+.Markdown-root .warning {
+  background: #ffffed;
+  border: 1px solid #c8ca47;
+}
+
+.Markdown-root .warning:before {
+  content: '⚠';
+  font-family: sans-serif;
+  color: #dde000;
+}
