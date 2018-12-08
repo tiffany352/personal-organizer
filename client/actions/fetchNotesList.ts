@@ -1,10 +1,10 @@
 import addNote from './addNote'
 import { ThunkResult } from "../reducers"
+import fetchJson from './fetchJson'
 
 export default function fetchNotesList(): ThunkResult<void> {
   return async dispatch => {
-    const response = await fetch("/api/notes/list")
-    const body = await response.json()
+    const body = await dispatch(fetchJson("/api/notes/list"))
 
     if (body.status == 'success') {
       const notes = body.result

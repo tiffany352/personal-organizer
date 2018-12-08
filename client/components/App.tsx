@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd'
 import NoteList from './NoteList'
 import CurrentNote from './CurrentNote'
+import OfflineModal from './OfflineModal'
 
 const { SubMenu } = Menu
 const { Header, Content, Sider } = Layout
@@ -20,6 +21,7 @@ export default function App(_props: {}) {
       <Layout style={{ marginLeft: 200 }}>
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
           <div style={{ padding: 24, background: '#fff' }}>
+            <OfflineModal />
             <CurrentNote />
           </div>
         </Content>
