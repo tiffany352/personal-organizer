@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as MarkdownIt from 'markdown-it'
 import * as MarkdownItContainer from 'markdown-it-container'
+import * as MarkdownItHighlightJS from 'markdown-it-highlightjs'
 import './Markdown.css'
 
 function createContainerRenderer(className: string) {
@@ -19,6 +20,9 @@ export default class Markdown extends React.Component {
   render() {
     const md = new MarkdownIt({
       linkify: true,
+    })
+    md.use(MarkdownItHighlightJS, {
+      auto: false
     })
     md.use(MarkdownItContainer, 'info', {
       render: createContainerRenderer('info')

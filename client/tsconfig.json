@@ -8,5 +8,11 @@
     "jsx": "react",
     "sourceMap": true,
     "allowJs": true
-  }
+  },
+  "files": [
+    "./index.tsx",
+  ],
+  "include": [
+    "./types/*.d.ts"
+  ]
 }
