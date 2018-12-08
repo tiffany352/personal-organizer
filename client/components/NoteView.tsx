@@ -36,7 +36,7 @@ export default class NoteView extends React.Component<NoteViewProps> {
     const {note, editing, setEditing} = this.props
 
     let contents
-    if (note.contents) {
+    if (note.contents != undefined) {
       if (editing) {
         contents = (
           <EditWidget text={this.state.text} setText={this.setText} />

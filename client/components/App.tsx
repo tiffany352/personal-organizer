@@ -3,6 +3,7 @@ import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd'
 import NoteList from './NoteList'
 import CurrentNote from './CurrentNote'
 import OfflineModal from './OfflineModal'
+import CreateNote from './CreateNote'
 
 const { SubMenu } = Menu
 const { Header, Content, Sider } = Layout
@@ -15,7 +16,7 @@ export default function App(_props: {}) {
         <h1>
           Organizer
         </h1>
-        <Button block={true} size='large' type='primary'>Create</Button>
+        <CreateNote />
         <NoteList />
       </Sider>
       <Layout style={{ marginLeft: 200 }}>
