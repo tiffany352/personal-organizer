@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Spin, Button, Row, Col, Popconfirm } from 'antd'
+import { Spin, Button, Popconfirm } from 'antd'
 import { Note } from '../reducers/notes'
 import EditWidget from './EditWidget'
 import Markdown from './Markdown'
@@ -62,25 +62,21 @@ export default class NoteView extends React.Component<NoteViewProps> {
     }
     return (
       <React.Fragment>
-        <Row align='middle'>
-          <Col span={20}>
-            {editing && <input
-              className="NoteView-title"
-              type="text"
-              value={this.state.title}
-              onChange={this.titleChanged}
-            />}
-            {!editing && <h1>{note.title||'Untitled'}</h1>}
-          </Col>
-          <Col>
-            {editing && <Button icon='save' onClick={this.saveAndExit}>Save</Button>}
-            {editing && <Button icon='stop' onClick={this.discardAndExit}>Cancel</Button>}
-            {!editing && <Button icon='edit' onClick={this.enableEditing}>Edit</Button>}
-            {!editing && <Popconfirm title="Permanently delete this note?" onConfirm={this.deleteNote}>
-              <Button icon='delete'>Delete</Button>
-            </Popconfirm>}
-          </Col>
-        </Row>
+        <Button.Group>
+          {editing && <Button icon='save' onClick={this.saveAndExit}>Save</Button>}
+          {editing && <Button icon='stop' onClick={this.discardAndExit}>Cancel</Button>}
+          {!editing && <Button icon='edit' onClick={this.enableEditing}>Edit</Button>}
+          {!editing && <Popconfirm title="Permanently delete this note?" onConfirm={this.deleteNote}>
+            <Button icon='delete'>Delete</Button>
+          </Popconfirm>}
+        </Button.Group>
+        {editing && <input
+          className="NoteView-title"
+          type="text"
+          value={this.state.title}
+          onChange={this.titleChanged}
+        />}
+        {!editing && <h1>{note.title||'Untitled'}</h1>}
         {contents}
       </React.Fragment>
     )
