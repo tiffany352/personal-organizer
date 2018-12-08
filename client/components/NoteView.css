@@ -1,0 +1,6 @@
+.NoteView-title {
+  border: 1px solid grey;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 1.75rem;
+}

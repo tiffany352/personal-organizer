@@ -2,26 +2,28 @@ import * as React from 'react'
 import { Spin, Button, Row, Col, Popconfirm } from 'antd'
 import { Note } from '../reducers/notes'
 import EditWidget from './EditWidget'
-import Markdown from './Markdown';
+import Markdown from './Markdown'
+import './NoteView.css'
 
 export type NoteViewProps = {
   note: Note,
   editing: boolean,
   setEditing: (value: boolean) => void,
-  updateContents: (id: number, contents: string) => void,
+  updateContents: (id: number, title: string, contents: string) => void,
   deleteNote: (id: number) => void
 }
 
 export default class NoteView extends React.Component<NoteViewProps> {
   state = {
-    text: this.props.note.contents
+    text: this.props.note.contents,
+    title: this.props.note.title
   }
 
   enableEditing = () =>
     this.props.setEditing(true)
   
   saveAndExit = () => {
-    this.props.updateContents(this.props.note.id, this.state.text)
+    this.props.updateContents(this.props.note.id, this.state.title, this.state.text)
     this.props.setEditing(false)
   }
   
@@ -62,7 +64,13 @@ export default class NoteView extends React.Component<NoteViewProps> {
       <React.Fragment>
         <Row align='middle'>
           <Col span={20}>
-            <h1>{note.title||'Untitled'}</h1>
+            {editing && <input
+              className="NoteView-title"
+              type="text"
+              value={this.state.title}
+              onChange={this.titleChanged}
+            />}
+            {!editing && <h1>{note.title||'Untitled'}</h1>}
           </Col>
           <Col>
             {editing && <Button icon='save' onClick={this.saveAndExit}>Save</Button>}
@@ -81,6 +89,12 @@ export default class NoteView extends React.Component<NoteViewProps> {
   setText = (text: string) => {
     this.setState({
       text: text
+    })
+  }
+
+  titleChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      title: event.target.value
     })
   }
 }

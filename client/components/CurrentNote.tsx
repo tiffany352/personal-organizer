@@ -40,8 +40,8 @@ const mapDispatchToProps = (dispatch: AppDispatch) => {
   return {
     setEditing: (value: boolean) =>
       dispatch(setEditing(value)),
-    updateContents: (id: number, contents: string) =>
-      dispatch(updateContents(id, contents)),
+    updateContents: (id: number, title: string, contents: string) =>
+      dispatch(updateContents(id, title, contents)),
     deleteNote: (id: number) =>
       dispatch(deleteNote(id))
   }
