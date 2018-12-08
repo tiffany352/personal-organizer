@@ -1,17 +1,19 @@
 import * as React from 'react'
-import { AppState } from "../reducers"
+import { AppState, AppDispatch } from "../reducers"
 import { connect } from "react-redux"
-import { Note } from "../reducers/notes"
-import NoteView from "./NoteView"
+import NoteView, { NoteViewProps } from "./NoteView"
 import { Spin } from 'antd'
+import setEditing from '../actions/setEditing'
+import updateContents from '../actions/updateContents';
 
-function CurrentNoteView({id, note}: { id: number|null, note?: Note }) {
-  if (note != undefined) {
+function CurrentNoteView(props: NoteViewProps & {id: number}) {
+  if (props.note != undefined) {
+    const key = `${props.id}-${props.note.contents ? 'loaded' : 'unloaded'}`
     return (
-      <NoteView note={note} />
+      <NoteView key={key} {...props} />
     )
   }
-  else if (id != null) {
+  else if (props.id != null) {
     return (
       <Spin />
     )
@@ -28,9 +30,19 @@ const mapStateToProps = (state: AppState) => {
   const note = state.notes.find((note) => note.id == id)
 
   return {
-    id, note
+    id, note,
+    editing: state.editing
   }
 }
 
-const CurrentNote = connect(mapStateToProps)(CurrentNoteView)
+const mapDispatchToProps = (dispatch: AppDispatch) => {
+  return {
+    setEditing: (value: boolean) =>
+      dispatch(setEditing(value)),
+    updateContents: (id: number, contents: string) =>
+      dispatch(updateContents(id, contents))
+  }
+}
+
+const CurrentNote = connect(mapStateToProps, mapDispatchToProps)(CurrentNoteView)
 export default CurrentNote

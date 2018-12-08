@@ -15,5 +15,20 @@ export default function notes(state: Note[], action: AppAction): Note[] {
     return newState
   }
 
+  if (action.type == 'updateNote') {
+    return state.map((note) => {
+      if (note.id == action.note.id) {
+        return {
+          id: action.note.id || note.id,
+          title: action.note.title || note.title,
+          contents: action.note.contents || note.contents,
+          updatedAt: action.note.updatedAt || note.updatedAt,
+          createdAt: action.note.createdAt || note.createdAt
+        }
+      }
+      return note
+    })
+  }
+
   return state || []
 }
