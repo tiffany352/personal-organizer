@@ -9,7 +9,10 @@ app.use(bodyParser())
 
 if (process.env.NODE_ENV == 'development' || !process.env.NODE_ENV) {
   const koaWebpack = require('koa-webpack')
-  koaWebpack().then((middleware: any) => {
+  const config = require('../webpack.dev.js')
+  koaWebpack({
+    config
+  }).then((middleware: any) => {
     app.use(middleware)
   })  
 }

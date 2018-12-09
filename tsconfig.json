@@ -18,7 +18,8 @@
     "preserveConstEnums": true
   },
   "include": [
-      "server/**/*"
+      "server/**/*",
+      "server/types/*.d.ts"
   ],
   "exclude": [
       "node_modules",

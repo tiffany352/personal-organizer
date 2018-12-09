@@ -3,7 +3,7 @@
   "scripts": {
     "test": "mocha --require ts-node/register server/test/**/*.ts",
     "start": "gulp start",
-    "build": "gulp"
+    "build": "gulp && webpack --config webpack.prod.js"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
@@ -12,6 +12,7 @@
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^4.2.1",
     "@types/koa-router": "^7.0.35",
+    "@types/koa-send": "^4.1.1",
     "@types/koa-webpack": "^5.0.1",
     "@types/markdown-it": "0.0.7",
     "@types/markdown-it-container": "^2.0.2",
@@ -54,6 +55,7 @@
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
+    "koa-send": "^5.0.0",
     "sqlite3": "^4.0.4"
   }
 }
