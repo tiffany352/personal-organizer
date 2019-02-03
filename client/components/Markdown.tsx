@@ -108,6 +108,12 @@ function InlineView(props: {node: Node}) {
           title={token.attrGet('alt')}
         />
       )
+    case 'code_inline':
+    return (
+      <span className="inline-code">
+        {token.content}
+      </span>
+    )
     default:
       return (
         <div className="nodeDebug">

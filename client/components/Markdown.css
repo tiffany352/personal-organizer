@@ -74,3 +74,11 @@
   font-family: sans-serif;
   color: #dde000;
 }
+
+.Markdown-root .inline-code {
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+  background: #f8f8f8;
+  font-family: monaco, Consolas, Lucida Console, monospace;
+  padding: 2px;
+}
