@@ -73,7 +73,7 @@ function InlineView(props: {node: Node}) {
 
   if (token.type == 'text') {
     return (
-      <React.Fragment>{token.content}</React.Fragment>
+      <>{token.content}</>
     )
   }
 
@@ -132,9 +132,9 @@ function NodeView(props: NodeViewProps) {
     case 'inline':
       const nodes = Node.build(token.children)
       return (
-        <React.Fragment>
+        <>
           {nodes.map((node) => <InlineView node={node} />)}
-        </React.Fragment>
+        </>
       )
     case 'paragraph_open':
       return (
@@ -253,20 +253,20 @@ function NodeDebug(props: NodeViewProps) {
       <p>{token.type} ({desc})</p>
       {token.content && <p>content: {token.content}</p>}
       {token.children && token.children.length > 0 && (
-        <React.Fragment>
+        <>
           <p>Token children: {token.children.length}</p>
           <ul>
             {token.children.map((token) => <li>{JSON.stringify(token)}</li>)}
           </ul>
-        </React.Fragment>
+        </>
       )}
       {children.length > 0 && (
-        <React.Fragment>
+        <>
           <p>Node children: {children.length}</p>
           <ul>
             {children.map((node) => <li><NodeDebug node={node} /></li>)}
           </ul>
-        </React.Fragment>
+        </>
       )}
     </div>
   )
@@ -291,9 +291,9 @@ export default class Markdown extends React.Component {
               const children = nodes.map((node) => <NodeView node={node} />)
 
               return (
-                <React.Fragment>
+                <>
                   {children}
-                </React.Fragment>
+                </>
               )
             }
             return child

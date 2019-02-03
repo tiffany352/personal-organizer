@@ -61,7 +61,7 @@ export default class NoteView extends React.Component<NoteViewProps> {
       )
     }
     return (
-      <React.Fragment>
+      <>
         <Button.Group>
           {editing && <Button icon='save' onClick={this.saveAndExit}>Save</Button>}
           {editing && <Button icon='stop' onClick={this.discardAndExit}>Cancel</Button>}
@@ -78,7 +78,7 @@ export default class NoteView extends React.Component<NoteViewProps> {
         />}
         {!editing && <h1>{note.title||'Untitled'}</h1>}
         {contents}
-      </React.Fragment>
+      </>
     )
   }
 
