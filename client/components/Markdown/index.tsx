@@ -23,8 +23,8 @@ export default class Markdown extends React.Component {
             if (typeof child == 'string') {
               const tokens = md.parse(child, {})
               const nodes = Node.build(tokens)
-              const debugChildren = nodes.map((node) => <NodeDebug node={node} />)
-              const children = nodes.map((node) => <NodeView node={node} />)
+              const debugChildren = nodes.map((node, index) => <NodeDebug key={index} node={node} />)
+              const children = nodes.map((node, index) => <NodeView key={index} node={node} />)
 
               return (
                 <>

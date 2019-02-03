@@ -7,14 +7,14 @@ import { atelierLakesideLight } from 'react-syntax-highlighter/dist/styles/hljs'
 export default function NodeView(props: { node: Node }) {
   const node = props.node
   const token = node.token
-  const renderedChildren = node.children.map((node) => <NodeView node={node} />)
+  const renderedChildren = node.children.map((node, index) => <NodeView key={index} node={node} />)
 
   switch (token.type) {
     case 'inline':
       const nodes = Node.build(token.children)
       return (
         <>
-          {nodes.map((node) => <InlineView node={node} />)}
+          {nodes.map((node, index) => <InlineView key={index} node={node} />)}
         </>
       )
     case 'paragraph_open':
@@ -43,7 +43,7 @@ export default function NodeView(props: { node: Node }) {
       if (node.children.length == 1 && node.children[0].token.type == 'paragraph_open') {
         return (
           <li>
-            {node.children[0].children.map((node) => <NodeView node={node} />)}
+            {node.children[0].children.map((node, index) => <NodeView key={index} node={node} />)}
           </li>
         )
       }

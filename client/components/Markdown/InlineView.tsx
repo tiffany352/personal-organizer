@@ -12,7 +12,7 @@ export default function InlineView(props: {node: Node}) {
     )
   }
 
-  const renderedChildren = node.children.map((node) => <InlineView node={node} />)
+  const renderedChildren = node.children.map((node, index) => <InlineView key={index} node={node} />)
 
   switch (token.type) {
     case 'strong_open':
