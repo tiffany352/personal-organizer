@@ -22,7 +22,7 @@
     "@types/react-redux": "^6.0.10",
     "antd": "^3.10.9",
     "chai": "^4.2.0",
-    "chai-http": "^4.2.0",
+    "chai-http": "=4.2.0",
     "concurrently": "^4.1.0",
     "css-loader": "^1.0.1",
     "gulp": "^4.0.0",
