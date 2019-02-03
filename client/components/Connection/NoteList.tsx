@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Note } from '../reducers/notes'
+import { Note } from '../../reducers/notes'
 import { connect } from 'react-redux'
-import { AppState, AppDispatch } from '../reducers'
+import { AppState, AppDispatch } from '../../reducers'
 import { Tree, Icon } from 'antd'
-import fetchCurrentNote from '../actions/fetchCurrentNote'
+import fetchCurrentNote from '../../actions/fetchCurrentNote'
 
 export type NoteListProps = {
   notes: Note[],

@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Button } from 'antd'
-import fetchCurrentNote from '../actions/fetchCurrentNote'
+import fetchCurrentNote from '../../actions/fetchCurrentNote'
 import { connect } from 'react-redux'
-import createNote from '../actions/createNote'
-import { AppDispatch } from '../reducers'
+import createNote from '../../actions/createNote'
+import { AppDispatch } from '../../reducers'
 
 function CreateNoteView(props: { createNote: () => void }) {
   return (

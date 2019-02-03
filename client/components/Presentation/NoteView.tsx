@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Spin, Button, Popconfirm, Tag, Icon } from 'antd'
-import { Note } from '../reducers/notes'
+import { Note } from '../../reducers/notes'
 import EditWidget from './EditWidget'
 import Markdown from './Markdown'
 import './NoteView.css'

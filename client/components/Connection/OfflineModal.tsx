@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Alert } from 'antd'
-import { AppState } from '../reducers'
+import { AppState } from '../../reducers'
 import { connect } from 'react-redux'
 
 function OfflineModalView(props: { currentlyOffline: boolean }) {

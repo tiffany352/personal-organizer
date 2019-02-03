@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { AppState, AppDispatch } from "../reducers"
+import { AppState, AppDispatch } from "../../reducers"
 import { connect } from "react-redux"
-import NoteView, { NoteViewProps } from "./NoteView"
+import NoteView, { NoteViewProps } from "../Presentation/NoteView"
 import { Spin } from 'antd'
-import setEditing from '../actions/setEditing'
-import updateContents from '../actions/updateContents'
-import deleteNote from '../actions/deleteNote'
+import setEditing from '../../actions/setEditing'
+import updateContents from '../../actions/updateContents'
+import deleteNote from '../../actions/deleteNote'
 
 function CurrentNoteView(props: NoteViewProps & {id: number}) {
   if (props.note != undefined) {
