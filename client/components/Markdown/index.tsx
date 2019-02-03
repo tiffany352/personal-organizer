@@ -4,6 +4,7 @@ import * as MarkdownItContainer from 'markdown-it-container'
 import Node from './Node'
 import NodeDebug from './NodeDebug'
 import NodeView from './NodeView'
+import taskListPlugin from './taskListPlugin'
 import './Markdown.css'
 
 export default class Markdown extends React.Component {
@@ -11,6 +12,7 @@ export default class Markdown extends React.Component {
     const md = new MarkdownIt({
       linkify: true,
     })
+    md.use(taskListPlugin)
     md.use(MarkdownItContainer, 'info')
     md.use(MarkdownItContainer, 'warning')
 

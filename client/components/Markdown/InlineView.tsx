@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Node from './Node'
+import { Checkbox } from 'antd'
 
 export default function InlineView(props: {node: Node}) {
   const node = props.node
@@ -43,11 +44,15 @@ export default function InlineView(props: {node: Node}) {
         />
       )
     case 'code_inline':
-    return (
-      <span className="inline-code">
-        {token.content}
-      </span>
-    )
+      return (
+        <span className="inline-code">
+          {token.content}
+        </span>
+      )
+    case 'checkbox':
+      return (
+        <Checkbox disabled={true} checked={token.content === 'true'} />
+      )
     default:
       return (
         <div className="nodeDebug">
