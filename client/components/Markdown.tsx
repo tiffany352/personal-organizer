@@ -1,6 +1,8 @@
 import * as React from 'react'
 import * as MarkdownIt from 'markdown-it'
 import * as MarkdownItContainer from 'markdown-it-container'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { atelierLakesideLight } from 'react-syntax-highlighter/dist/styles/hljs'
 import './Markdown.css'
 
 // Required since it's not a publicly exposed type in markdown-it
@@ -174,9 +176,18 @@ function NodeView(props: NodeViewProps) {
         <blockquote>{renderedChildren}</blockquote>
       )
     case 'fence':
-      return (
-        <pre>{token.content}</pre>
-      )
+      if (true ||token.info) {
+        return (
+          <SyntaxHighlighter style={atelierLakesideLight} language={token.info || 'text'}>
+            {token.content}
+          </SyntaxHighlighter>
+        )
+      }
+      else {
+        return (
+          <pre>{token.content}</pre>
+        )
+      }
     case 'hr':
       return (
         <hr />
