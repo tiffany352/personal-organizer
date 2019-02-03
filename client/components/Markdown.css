@@ -25,6 +25,12 @@
   background: #f5f4f4;
 }
 
+.Markdown-root .nodeDebug {
+  background: #efefef;
+  padding: 8px;
+  border: 1px solid #cccccc;
+}
+
 .Markdown-root .infobox {
   border-radius: 3px;
   margin: 16px;
