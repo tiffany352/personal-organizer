@@ -5,7 +5,8 @@ export type Note = {
   title: string,
   contents?: string,
   createdAt: number,
-  updatedAt: number|null
+  updatedAt: number|null,
+  tags?: string[],
 }
 
 export default function notes(state: Note[], action: AppAction): Note[] {

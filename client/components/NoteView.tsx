@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Spin, Button, Popconfirm } from 'antd'
+import { Spin, Button, Popconfirm, Tag, Icon } from 'antd'
 import { Note } from '../reducers/notes'
 import EditWidget from './EditWidget'
 import Markdown from './Markdown'
@@ -70,6 +70,12 @@ export default class NoteView extends React.Component<NoteViewProps> {
             <Button icon='delete'>Delete</Button>
           </Popconfirm>}
         </Button.Group>
+        <div style={{ margin: '10px 0px' }}>
+          {note.tags && note.tags.map((tag) => <Tag closable key={tag}>{tag}</Tag>)}
+          <Tag style={{ background: '#fff', borderStyle: 'dashed' }}>
+            <Icon type="plus" /> New Tag
+          </Tag>
+        </div>
         {editing && <input
           className="NoteView-title"
           type="text"

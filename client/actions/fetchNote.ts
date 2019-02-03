@@ -13,7 +13,8 @@ export default function fetchNote(id: number): ThunkResult<void> {
         title: note.title,
         contents: note.contents,
         createdAt: note.createdAt,
-        updatedAt: note.updatedAt
+        updatedAt: note.updatedAt,
+        tags: note.tags,
       }))
     }
   }

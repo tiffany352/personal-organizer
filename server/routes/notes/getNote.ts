@@ -11,6 +11,13 @@ export default async function getNote(ctx: IRouterContext) {
 
   if (result.length > 0) {
     const note = result[0]
+
+    const result_tags: { title: string }[] = await database('tags')
+      .join('note_tags', 'note_tags.tagid', '=', 'tags.rowid')
+      .where('note_tags.noteid', id)
+      .select('tags.title')
+    const tags = result_tags.map((row) => row.title)
+
     ctx.body = {
       status: 'success',
       result: {
@@ -19,7 +26,8 @@ export default async function getNote(ctx: IRouterContext) {
         contents: note.contents,
         createdAt: note.createdAt,
         updatedAt: note.updatedAt,
-        deletedAt: note.deletedAt
+        deletedAt: note.deletedAt,
+        tags,
       }
     }
   }
