@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd'
 import NoteList from './NoteList'
-import CurrentNote from './CurrentNote'
+import CurrentNote from './MainNoteView'
 import OfflineModal from './OfflineModal'
 import CreateNote from './CreateNote'
 
