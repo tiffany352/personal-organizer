@@ -1,0 +1,8 @@
+[package]
+name = "personal-organizer-server"
+version = "0.1.0"
+authors = ["Tiffany Bennett <tiffnixen@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+actix-web = "0.7"

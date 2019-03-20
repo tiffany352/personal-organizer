@@ -1,5 +1,5 @@
 {
-  "name": "personal-organizer",
+  "name": "personal-organizer-app",
   "scripts": {
     "test": "mocha --require ts-node/register server/test/**/*.ts",
     "start": "gulp start",
